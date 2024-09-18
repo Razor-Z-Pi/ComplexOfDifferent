@@ -52,8 +52,14 @@ while True:
 
 # Task 5
 
-for i in range(1, 100):
-    print(i)
+for i in range(1, 101):
+    k = 0
+    j = i // 2
+    while j > 0 and k < 2:
+        k += (i % j == 0)
+        j -= 1
+    if k == 1:
+        print(i)
 
 # Task 6
 
