@@ -34,12 +34,15 @@ print("Число = ", number_value_pow(n,b))
 
 #Task 4
 
-def number_value_pow(a, b):
-    return a ** b
+def number_value_sum(n):
+    sum = 0
+    for i in range(int(n) + 1):
+        sum += i
+    return sum
 
-n = int(input("Введите число: "))
-b = int(input("Введите степень: "))
-print("Число = ", number_value_pow(n,b))
+n = int(input("Введите число = "))
+print("Число без строки = ", number_value_sum(n))
+print("Число со строкой = ", number_value_sum(str(n)))
 
 #Task 5
 
