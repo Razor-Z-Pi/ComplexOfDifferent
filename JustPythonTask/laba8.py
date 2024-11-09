@@ -28,19 +28,17 @@ list = [random.randint(0, 10) for i in range(0, 10)]
 print(list)
 n = int(input("Введите число = "))
 
-one_nimber = lambda x,y: x == y
+one_number = lambda x,y: x == y
 
-print(f"Числа {one_nimber(n, list[0])}")    
+print(f"Числа {one_number(n, list[0])}")    
 
 # Task 3
 
-list = [float(random.randint(-10, 10)) for i in range(0, 10)]
-print(list)
-n = float(input("Введите число = "))
+n = input("Введите число = ")
 
-one_nimber = lambda x,y: x == y
+is_number_str = lambda x: x.replace('.', '', 1).replace('-', '', 1).isdigit() and x.count('.') <= 1
 
-print(f"Числа {one_nimber(n, list[0])}")
+print(f"{is_number_str(n)}")
 
 # Task 4
 
@@ -100,7 +98,7 @@ result = list(map(lambda x: x * number, list1))
 
 print(result)
 
-# Task 9 - 10
+# Task 9
 
 list1 = ['sally', 'DYlan', 'rebecca', 'Diana', 'Joanne', 'keith']
 
@@ -112,7 +110,7 @@ result_length = sum(map(len, big_name))
 
 print(result_length)
 
-# Task 11
+# Task 10
 
 list1 = ['Red', 'Green', 'Blue', 'White', 'Black']
 
