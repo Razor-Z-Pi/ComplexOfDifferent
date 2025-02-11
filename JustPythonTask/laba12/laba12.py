@@ -15,6 +15,8 @@ arr = []
 def update_task_listbox():
     task_listbox.delete(0, tk.END)
 
+    open(file_name, "a")
+
     with open(file_name, 'r') as file:
         lines = file.readlines()  # Читаем все строки из файла
 
@@ -28,7 +30,6 @@ def update_task_listbox():
 
             if task_text not in arr:
                 arr.append(task_text)
-                print(task_text)
                 with open(file_name, 'a') as file:
                     file.write(task_text + '\n')                
 
@@ -56,7 +57,7 @@ def remove_task():
         with open(file_name, 'w') as file:
             for line in lines:
                 for task in tasks:
-                    if line.strip() != task["task"]:  # Удаляем только если строка совпадает с нужным словом
+                    if line.strip() == task["task"]:  # Удаляем только если строка совпадает с нужным словом
                         file.write(line)
 
         update_task_listbox()
