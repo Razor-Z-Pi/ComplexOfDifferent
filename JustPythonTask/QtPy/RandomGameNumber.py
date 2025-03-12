@@ -2,6 +2,8 @@ import sys
 import random
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
 
+messageNum = []
+
 class GuessNumberGame(QWidget):
     def __init__(self):
         super().__init__()
@@ -41,11 +43,12 @@ class GuessNumberGame(QWidget):
             return
 
         self.attempts += 1
+        messageNum.append(value)
 
         if value < self.target_number:
-            self.result_label.setText(f"Загаданное число больше!!! Попытка: {self.attempts}")
+            self.result_label.setText(f"Загаданное число больше!!! Попытка: {self.attempts}; Прошлые числа {messageNum}")
         elif value > self.target_number:
-            self.result_label.setText(f"Загаданное число меньше!!! Попытка: {self.attempts}")
+            self.result_label.setText(f"Загаданное число меньше!!! Попытка: {self.attempts}; Прошлые числа {messageNum}")
         else:
             QMessageBox.information(self, "Победа!!!", f"Вы угадали число за {self.attempts} попыток!!!")
             self.reset_game()
